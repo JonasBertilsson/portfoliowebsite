@@ -1,3 +1,4 @@
+/* GRUNDINSTÄLLNINGAR */
 * {
     margin: 0;
     padding: 0;
@@ -5,167 +6,99 @@
 }
 
 body {
-    font-family: Arial, sans-serif;
-    background-color: rgb(14, 13, 13)
-    
+    background-color: rgb(14, 13, 13);
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    overflow-x: hidden;
 }
 
-.portfolio-page {
-    padding: 40px 60px; 
-}
+/* NAVIGATION (behåller din tidigare nav-stil) */
+.main-nav { position: fixed; top: 0; left: 0; width: 100%; display: flex; justify-content: space-between; align-items: center; padding: 30px 40px; background: transparent; z-index: 1000; }
+.main-nav a, .main-nav span { color: #ffffff; text-decoration: none; font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; }
+.nav-center { position: absolute; left: 50%; transform: translateX(-50%); color: #666; }
+.nav-right { display: flex; gap: 25px; }
+.nav-right a { color: #888; transition: color 0.3s ease; }
+.nav-right a:hover { color: #ffffff; }
 
-
-.portfolio-header {
+/* WORK LAYOUT */
+.work-container {
+    padding: 180px 20px 100px;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 50px;
-    margin-top: 20px;
+    flex-direction: column;
+    align-items: center; /* Centrerar videon */
+    width: 100%;
+    gap: 100px;
 }
 
-.portfolio-header h1 {
-    font-size: 24px;
-    font-weight: 300;
-    letter-spacing: -0.5px;
+.project {
+    width: 100%;
+    max-width: 800px; /* Här styr du storleken på videon */
 }
 
-
-.video-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr; 
-    gap: 15px; 
-}
-
-
-.video-container {
-    position: relative;
-    padding-bottom: 56.25%; 
-    background-color: #111;
+/* VIDEO WRAPPERN - Detta är nyckeln för overlay */
+.video-wrapper {
+    width: 100%;
+    position: relative !important; /* Måste ha för att texten ska sväva ovanpå */
     overflow: hidden;
+    background-color: #000;
+    line-height: 0;
+    box-shadow: 0 30px 60px rgba(0,0,0,0.5); /* Ger lite djup */
 }
 
-.video-container iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
+.portfolio-video {
     width: 100%;
-    height: 100%;
-    border: none;
+    height: auto;
+    display: block;
+    outline: none;
 }
 
-.portfolio-link {
-    display: inline-block;
-    margin-top: 50px;
-    color: #666;
-    text-decoration: none;
-    font-size: 12px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
+/* Ny rubrik-stil */
+.work-header {
+    text-align: center;
+    margin-bottom: 80px;
+    font-family: 'Google Sans', sans-serif;
 }
 
-.main-nav {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px 40px; 
-    background-color: rgba(0, 0, 0, 0.9); 
-    z-index: 1000; 
-    box-sizing: border-box;
-}
-
-.nav-logo a {
-    color: white;
-    text-decoration: none;
-    font-size: 1.2rem;
-    font-weight: bold;
-    letter-spacing: 2px;
-}
-
-
-.nav-links {
-    display: flex;
-    gap: 30px; 
-}
-
-.nav-links a {
-    color: #888; 
-    text-decoration: none;
-    font-size: 0.7rem;
-    letter-spacing: 1.5px;
-    transition: color 0.3s ease;
-}
-
-.nav-links a:hover {
-    color: white; 
-}
-
-
-.portfolio-page {
-    margin-top: 80px; 
-}
-
-h1 {
-    color: white;
-}
-
-.main-nav {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    display: flex; 
-    justify-content: space-between; 
-    align-items: center;
-    padding: 30px 40px;
-    background: transparent;
-    z-index: 1000;
-    box-sizing: border-box;
-}
-
-
-.main-nav a, .main-nav span {
-    color: #ffffff;
-    text-decoration: none;
+.work-header h1 {
     font-size: 11px;
-    letter-spacing: 1.5px;
+    letter-spacing: 3px;
     text-transform: uppercase;
-    font-family: Arial, sans-serif;
-}
-
-
-.nav-left {
-    text-align: left;
-}
-
-.logo {
-    font-weight: 800; 
-}
-
-
-.nav-center {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
     color: #666;
-    white-space: nowrap;
+    margin-bottom: 10px;
 }
 
-
-.nav-right {
-    display: flex;
-    gap: 25px;
-    margin-left: auto; 
+/* Snyggare text inuti hovringen */
+.video-overlay h2 {
+    font-size: 1.5rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+    /* Lägg till en liten rörelse-effekt på texten */
+    transform: translateY(20px);
+    transition: transform 0.5s ease;
 }
 
-.nav-right a {
-    color: #888;
-    transition: color 0.3s ease;
+.video-overlay p {
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #888 !important;
+    transform: translateY(20px);
+    transition: transform 0.5s ease 0.1s; /* Lite fördröjning */
 }
 
-.nav-right a:hover {
-    color: #ffffff;
+/* När vi hovrar, skjut upp texten till sin plats */
+.video-wrapper:hover .video-overlay h2,
+.video-wrapper:hover .video-overlay p {
+    transform: translateY(0);
+}
+
+/* Gör videon lite mörkare som standard för bättre kontrast */
+.portfolio-video {
+    filter: brightness(0.9);
+    transition: filter 0.5s ease;
+}
+
+.video-wrapper:hover .portfolio-video {
+    filter: brightness(0.4); /* Videon mörknar när texten dyker upp */
 }

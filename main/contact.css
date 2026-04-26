@@ -1,0 +1,106 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: rgb(14, 13, 13);
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    overflow-x: hidden;
+}
+
+
+
+
+
+/* NAVIGATION */
+.main-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center;
+    padding: 30px 40px;
+    z-index: 1000;
+
+    padding: 16px 32px; 
+    border-radius: 50px; /* Gör den helt rundad på sidorna */
+    transition: all 0.3s ease; /* Gör att färgändringen sker mjukt */
+}
+
+
+/* Här fixar vi länkarna så att de får en stor och tydlig radius */
+.main-nav a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    
+    /* ÖKAD RADIUS OCH PADDING HÄR */
+    padding: 12px 24px;   /* Mer utrymme inuti bubblan */
+    border-radius: 100px; /* Gör den helt rundad oavsett storlek */
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+/* Bakgrunden som dyker upp när man hovrar */
+.main-nav a:hover {
+    background-color: rgba(255, 255, 255, 0.1); 
+    color: #ffffff !important;
+}
+
+/* Effekt när man trycker ner knappen */
+.main-nav a:active {
+    background-color: rgba(255, 255, 255, 0.25);
+    transform: scale(0.92); /* Lite mer märkbar tryck-effekt */
+}
+
+/* Den aktiva sidan (t.ex. WORK) har en fast bubbla */
+.main-nav a[style*="color: white"] {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Behåll span (klockan) utan bakgrund */
+.main-nav span {
+    color: #666;
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+}
+
+.nav-center {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #666;
+}
+
+.nav-right {
+    display: flex;
+    gap: 25px;
+}
+
+.nav-right a {
+    color: #888;
+    transition: color 0.3s ease;
+}
+
+.nav-right a:hover {
+    color: #ffffff;
+}
+
+/* STARTSIDA (index.html) */
+/* STARTSIDA (index.html) */
+.text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    text-align: center;
+}
